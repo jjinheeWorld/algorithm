@@ -9,4 +9,4 @@ arr.sort((a, b) => {
   else return a[0] - b[0];
 });
 
-arr.forEach((v) => console.log(...v));
+console.log(arr.map((v) => v.join(" ")).join("\n"));
