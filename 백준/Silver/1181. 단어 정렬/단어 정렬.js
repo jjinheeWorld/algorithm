@@ -2,7 +2,7 @@ const fs = require("fs");
 const input = fs.readFileSync("/dev/stdin").toString().trim().split("\n");
 
 const n = +input[0];
-const words = input.splice(1);
+const words = input.slice(1);
 const uniqueWords = [...new Set(words)];
 
 uniqueWords.sort((a, b) => {
