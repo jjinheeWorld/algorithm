@@ -5,23 +5,27 @@ const n = Number(input[0]);
 const arr = input.splice(1);
 
 const stack = [];
+const answer = [];
 
-for (let command of arr) {
+for (let i = 0; i < arr.length; i++) {
+  const [command, value] = arr[i].split(" ");
   switch (command) {
+    case "push":
+      stack.push(Number(value));
+      break;
     case "pop":
-      console.log(stack.length > 0 ? stack.pop() : -1);
+      answer.push(stack.length > 0 ? stack.pop() : -1);
       break;
     case "size":
-      console.log(stack.length);
+      answer.push(stack.length);
       break;
     case "empty":
-      console.log(stack.length === 0 ? 1 : 0);
+      answer.push(stack.length === 0 ? 1 : 0);
       break;
     case "top":
-      console.log(stack.length > 0 ? stack[stack.length - 1] : -1);
+      answer.push(stack.length > 0 ? stack[stack.length - 1] : -1);
       break;
-    default:
-      const [_, value] = command.split(" ");
-      stack.push(Number(value));
   }
 }
+
+console.log(answer.join("\n"));
