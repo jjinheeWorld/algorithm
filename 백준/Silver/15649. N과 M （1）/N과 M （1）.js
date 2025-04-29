@@ -4,21 +4,23 @@ const [n, m] = fs.readFileSync("/dev/stdin").toString().trim().split(" ").map(Nu
 const selected = [];
 const visited = Array(n + 1).fill(false);
 
+const answer = [];
+
 const backtracking = (depth) => {
   if (depth === m) {
-    console.log(selected.join(" "));
+    answer.push(selected.join(" "));
     return;
   }
 
   for (let i = 1; i <= n; i++) {
     if (!visited[i]) {
       visited[i] = true;
-      selected.push(i);
+      selected[depth] = i;
       backtracking(depth + 1);
-      selected.pop();
       visited[i] = false;
     }
   }
 };
 
 backtracking(0);
+console.log(answer.join("\n"));
