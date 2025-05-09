@@ -13,19 +13,24 @@ for (let i = 1; i <= m; i++) {
   graph[b].push(a);
 }
 
-const dfs = (node) => {
-  visited[node] = true;
+const bfs = (start) => {
+  const queue = [start];
+  visited[start] = true;
 
-  for (let next of graph[node]) {
-    if (!visited[next]) {
-      dfs(next);
+  while (queue.length > 0) {
+    const node = queue.shift();
+    for (let next of graph[node]) {
+      if (!visited[next]) {
+        visited[next] = true;
+        queue.push(next);
+      }
     }
   }
 };
 
 for (let i = 1; i <= n; i++) {
   if (!visited[i]) {
-    dfs(i);
+    bfs(i);
     count++;
   }
 }
