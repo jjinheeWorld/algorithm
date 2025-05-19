@@ -9,16 +9,13 @@ const bfs = () => {
   visited[N] = true;
 
   while (queue.length > 0) {
-    const [x, time] = queue.shift();
-    if (x === K) return time;
+    const [pos, time] = queue.shift();
+    if (pos === K) return time;
 
-    const dx = [-1, 1, x];
-    for (let i = 0; i < 3; i++) {
-      const nx = x + dx[i];
-
-      if (nx >= 0 && nx < max && !visited[nx]) {
-        visited[nx] = true;
-        queue.push([nx, time + 1]);
+    for (let next of [pos + 1, pos - 1, pos * 2]) {
+      if (next >= 0 && next < max && !visited[next]) {
+        visited[next] = true;
+        queue.push([next, time + 1]);
       }
     }
   }
