@@ -1,9 +1,7 @@
 function solution(arr) {
     const stack = [];
-    
-    for (let num of arr) {
-        if (num !== stack[stack.length - 1]) stack.push(num);
+    for (let v of arr) {
+        if (v !== stack[stack.length - 1]) stack.push(v);
     }
-    
     return stack;
 }
