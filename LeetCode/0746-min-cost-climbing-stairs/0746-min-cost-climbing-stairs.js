@@ -4,7 +4,7 @@
  */
 const minCostClimbingStairs = function(cost) {
     const n = cost.length;
-    const dp = Array(n).fill(-1);
+    const dp = Array(n + 1).fill(-1);
     dp[0] = 0;
     dp[1] = 0;
 
