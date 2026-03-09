@@ -1,5 +1,5 @@
 function solution(nums) {
-    const pickNumber = Math.floor(nums.length / 2);
-    const types = new Set(nums);
-    return types.size > pickNumber ? pickNumber : types.size;
+    const monsters = new Set(nums);
+    const max = (nums.length / 2);
+    return monsters.size > max ? max : monsters.size;
 }
