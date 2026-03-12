@@ -7,14 +7,20 @@ const arr = input[1].split(" ").map(Number);
 arr.sort((a, b) => a - b);
 let left = 0;
 let right = N - 1;
-const solutions = new Map();
+let bestSum = Infinity;
+let answer = [];
 
 while (left < right) {
   const sum = arr[left] + arr[right];
-  solutions.set(Math.abs(sum), [arr[left], arr[right]]);
+
+  if (Math.abs(sum) < Math.abs(bestSum)) {
+    bestSum = sum;
+    answer = `${arr[left]} ${arr[right]}`;
+  }
+
   if (sum > 0) right--;
-  else left++;
+  else if (sum < 0) left++;
+  else break;
 }
 
-const min = Math.min(...solutions.keys());
-console.log(solutions.get(min).join(" "));
+console.log(answer);
