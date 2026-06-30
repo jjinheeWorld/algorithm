@@ -2,13 +2,14 @@ function solution(a, b) {
     let sum = 0;
     
     if (a > b) {
-        let c = a;
-        a = b;
-        b = c;
+        let c = b;
+        b = a;
+        a = c;
     }
     
-    for (let i = a; i <= b; i++) {
-        sum += i;    
+    while (a <= b) {
+        sum += a;
+        a++;
     }
     
     return sum;
