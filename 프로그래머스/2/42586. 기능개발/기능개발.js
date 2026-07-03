@@ -4,16 +4,16 @@ function solution(progresses, speeds) {
         return Math.ceil((100 - progress) / speeds[index]);
     });
     
-    let flag = days[0];
+    let current = days[0];
     let count = 0;
     
     for (const day of days) {
-        if (flag >= day) {
+        if (current >= day) {
             count++;
         } else {
             answer.push(count);
             count = 1;
-            flag = day;
+            current = day;
         }
     }
     
