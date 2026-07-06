@@ -1,14 +1,10 @@
-function solution(s) {
+function solution(s){
     const stack = [];
-    for (const x of s) {
-        if (x === "(") {
-            stack.push(x);
-        }
-        else {
-            if (stack.length === 0) return false;
-            stack.pop();
-        }
+    
+    for (const target of s) {
+        if (stack.length > 0 && target === ")") stack.pop();
+        else stack.push(target);
     }
-    if (stack.length > 0) return false;
-    return true;
+    
+    return stack.length > 0 ? false : true;
 }
